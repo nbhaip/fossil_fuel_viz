@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Vulnerability of Fossil Fuels in the 50 states</title>
+
+    <!--<link type="text/css" rel="stylesheet" href="css/style.css"/>-->
+</head>
+<style type="text/css">
+    .axis path,
+    .axis line {
+        fill: none;
+        stroke: black;
+        shape-rendering: crispEdges;
+    }
+    
+    .axis text {
+        font-family: "Helvetica Neue";
+        font-weight: 300;
+        font-size: 11px;
+    }
+    
+    body {
+        background-color: #DCDCDC;
+    }
+    
+    h1 {
+        font-family: "Helvetica Neue";
+        color: "#F5F5F5";
+        font-weight: 300;
+        /*        text-align: center; */
+    }
+    
+    .tooltip {
+        position: absolute;
+        width: 500px;
+        height: 28px;
+        font-family: "Helvetica Neue";
+        font-weight: 300;
+        pointer-events: none;
+        color: red;
+        fill: red;
+        stroke: red;
+    }
+    
+    p {
+        font-family: "Helvetica Neue";
+        /*        align-content: center;*/
+        /*        vertical-align: top;*/
+        color: darkblue;
+        font-weight: 300;
+        display: inline-block;
+    }
+    
+    .legend rect {
+        fill: white;
+        stroke: black;
+        opacity: 0.8;
+    }
+    
+    #controls {
+        /*text-align: center;*/
+    }
+    
+    #pieChartUSA {
+        /*        position: relative;*/
+        /*        bottom: 0px;*/
+        /*        float:left;*/
+        margin-top: 0px;
+    }
+    
+    #pieChartState {
+        /*        position: relative;*/
+        /*        float:right;*/
+    }
+    
+    #pieDiv {
+        position: relative;
+        float: right;
+        padding-right: 200px;
+        padding-top: 0px;
+        display: inline-block;
+    }
+    
+    .rectangle {
+        width: 10px;
+        height: 10px;
+        /*        background: blue;*/
+        display: inline-block;
+        /*        vertical-align: top;*/
+    }
+    
+    #scatterPlot {
+        position: absolute;
+        display: inline-block;
+    }
+</style>
+
+<body>
+    <h1>Fueled by Fossils</h1>
+    <!-- Slider source: http://bl.ocks.org/d3noob/10632804 -->
+    <div id="controls">
+        <label for="nRadius" style="width: 240px; text-align: right; step: 1;
+                        font-family: Helvetica Neue; font-weight: 300; color: darkblue;">
+            Year = <span id="nRadius-value"></span>
+        </label>
+
+        <input id="yearinput" value="1997" type="range" min="1997" max="2014" step="1" style="width: 300px;" id="nYear" onchange="draw(this.value)">
+        <br>
+        <p>Show United States
+            <input type="checkbox" id="usCheck" onchange="draw(document.getElementById('yearinput').value)">
+        </p>
+        <br>
+        <p style = "color: red">
+        Highlight: </p>
+        <p>Texas 
+            <input type="checkbox" id="texCheck" onchange="draw(document.getElementById('yearinput').value)">
+        </p>
+        <p>Alaska 
+            <input type="checkbox" id="akCheck" onchange="draw(document.getElementById('yearinput').value)">
+        </p>
+        <p>North Dakota 
+            <input type="checkbox" id="ndCheck" onchange="draw(document.getElementById('yearinput').value)">
+        </p>
+        <br>
+        <p>Size of circle corresponds to percentage of population employed in fossil fuel industry</p>
+        <div style="margin-bottom: 0px; vertical-align: top;">
+            <div class="rectangle" style="background:red;"> </div>
+            <p style="padding-right:10px">Northeast</p>
+            <div class="rectangle" style="background:green"> </div>
+            <p style="padding-right:10px">South</p>
+            <div class="rectangle" style="background:orange"> </div>
+            <p style="padding-right:10px">West</p>
+            <div class="rectangle" style="background:blue"> </div>
+            <p style="padding-right:10px">Midwest</p>
+        </div>
+        <!--
+        <div class="rectangle" style="background:orange"> </div>
+        <p>West</p>
+        <div class="rectangle" style="background:green"> </div>
+        <p>South</p>
+-->
+        <select id="ChooseRegion" onchange="draw(document.getElementById('yearinput').value)">
+            <option value="All" selected="selected">Show all</option>
+            <option value="West">West</option>
+            <option value="Midwest">Midwest</option>
+            <option value="South">South</option>
+            <option value="Northeast">Northeast</option>
+        </select>
+        <!--<input type="text" onchange="draw(#nYear.value, this.value)" id="state_name"> -->
+        <select id="ChooseState" onchange="draw(document.getElementById('yearinput').value)">
+
+        </select>
+    </div>
+    <div id="charts">
+        <div id="scatterPlot"></div>
+
+        <div id="pieDiv">
+            <div id="pieChartUSA"></div>
+            <div id="pieChartState"></div>
+        </div>
+    </div>
+    <div style="height:425px"></div>
+    <p>This visualization shows the complexities between the fossil fuel industry and CO2 emissions over time for the 50 states. I recommend looking at the highlight checkboxes. Notice how the fossil fuel industry doubles in size for Texas in twenty years, even taking inflation into account. North Dakota is interesting in that its fossil fuel industry exploded recently due to the popular use of fracking. The result is that it dramatically increases the percentage of population employed in fossil fuel industry, but at the serious expense of increasing per capita CO2 emissions. Though it has a relatively high CO2 per capita, Alaska has made serious strides in cutting greenhouse gasses in the last twenty years. For example, in 2007 Alaska joined the Western Climate Initiative to reduce its emissions by 15 percent below 2005 levels by 2020. </p>
+    <script type="text/javascript" src="d3.v4.min.js"></script>
+    <script src="https://d3js.org/d3-queue.v3.min.js"></script>
+    <script src="d3pie.min.js"></script>
+    <script type="text/javascript" src="script_v2.js"></script>
+
+
+</body>
+
+</html>
