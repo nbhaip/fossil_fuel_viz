@@ -232,11 +232,11 @@ function draw(year) {
     d3.select(".ak").remove();
 
     if (document.getElementById("usCheck").checked) {
-            document.getElementById("texCheck").checked = false;
-  
-            document.getElementById("ndCheck").checked = false;
+        document.getElementById("texCheck").checked = false;
 
-            document.getElementById("akCheck").checked = false;
+        document.getElementById("ndCheck").checked = false;
+
+        document.getElementById("akCheck").checked = false;
 
     }
     var selectIndex = document.getElementById('ChooseState').selectedIndex;
@@ -420,6 +420,32 @@ function draw(year) {
         .style("font-weight", "300")
         .text(year);
 
+    svg.append("text")
+        .attr("x", width - 25 * pad)
+        .attr("font-size", "16px")
+        .attr("y", 100)
+        .style("align-content", "right")
+        .style("font-family", "Helvetica Neue")
+        .style("font-weight", "300")
+        .text(function (d) {
+            switch (year) {
+            case "1997":
+                return "EPA issues tough new air quality standards for smog and soot.";
+            case "1999":
+                return "New Emissions Standards for Cars: Tailpipes must be 77-95% cleaner.";
+            case "2005":
+                return "Energy Policy Act provides secured loans for tech that avoids" +
+                    " greenhouse gases.";
+            case "2008":
+                return "Recession is associated with a significant drop in CO2 per capita for all states.";
+            case "2009":
+                return "Recession is associated with a significant drop in CO2 per capita for all states.";
+            case "2014":
+                return "Clean Power Plan would cut carbon pollution from existing power plants.";
+            default:
+                return "";
+            }
+        });
 
     svg.append("text")
         .attr("text-anchor", "middle") // this makes it easy to centre the text as the transform is applied to the anchor
