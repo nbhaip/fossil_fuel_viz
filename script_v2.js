@@ -222,6 +222,7 @@ function selectOne() {
 selectOne();
 var x_copy;
 var y_copy;
+var text_stack = "'Helvetica Neue', Helvetica, Arial, sans-serif"
 // pass in a year to draw function
 function draw(year) {
 
@@ -416,7 +417,7 @@ function draw(year) {
         .attr("x", width - 5 * pad)
         .attr("font-size", "50px")
         .attr("y", 50)
-        .style("font-family", "Helvetica Neue")
+        .style("font-family", text_stack)
         .style("font-weight", "300")
         .text(year);
 
@@ -425,7 +426,7 @@ function draw(year) {
         .attr("font-size", "16px")
         .attr("y", 100)
         .style("align-content", "right")
-        .style("font-family", "Helvetica Neue")
+        .style("font-family", text_stack)
         .style("font-weight", "300")
         .text(function (d) {
             switch (year) {
@@ -450,14 +451,14 @@ function draw(year) {
     svg.append("text")
         .attr("text-anchor", "middle") // this makes it easy to centre the text as the transform is applied to the anchor
         .attr("transform", "translate(" + (pad / 1.5) + "," + (height / 2) + ")rotate(-90)") // text is drawn off the screen top left, move down and out and rotate
-        .style("font-family", "Helvetica Neue")
+        .style("font-family", text_stack)
         .style("font-weight", "300")
 
     .text("Fossil Fuel Industry Payroll \n (1000s of Dollars)");
 
     svg.append("text")
         .attr("text-anchor", "middle") // this makes it easy to centre the text as the transform is applied to the anchor
-        .style("font-family", "Helvetica Neue")
+        .style("font-family", text_stack)
         .style("font-weight", "300")
 
     .attr("transform", "translate(" + (width / 2) + "," + (height + 1 * pad) + ")") // centre below axis
@@ -516,15 +517,10 @@ function draw(year) {
             "title": {
                 "text": stateList2[selectIndex]["alpha-2"],
                 "fontSize": 20,
-                "font": "Helvetica Neue"
+                "font": text_stack
             },
             "location": "pie-center"
-                //            "subtitle": {
-                //                "text": "A full pie chart to show off label collision detection and resolution.",
-                //                "color": "#999999",
-                //                "fontSize": 12,
-                //                "font": "Helvetica Neue"
-                //            },
+
         },
 
         "size": {
@@ -597,7 +593,7 @@ function draw(year) {
             "title": {
                 "text": "US",
                 "fontSize": 20,
-                "font": "Helvetica Neue"
+                "font": text_stack
             },
             "location": "pie-center"
         },

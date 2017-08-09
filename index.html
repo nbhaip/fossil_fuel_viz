@@ -16,7 +16,7 @@
     }
     
     .axis text {
-        font-family: "Helvetica Neue";
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-weight: 300;
         font-size: 11px;
     }
@@ -26,7 +26,7 @@
     }
     
     h1 {
-        font-family: "Helvetica Neue";
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         color: "#F5F5F5";
         font-weight: 300;
         /*        text-align: center; */
@@ -36,7 +36,7 @@
         position: absolute;
         width: 500px;
         height: 28px;
-        font-family: "Helvetica Neue";
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-weight: 300;
         pointer-events: none;
         color: red;
@@ -45,7 +45,7 @@
     }
     
     p {
-        font-family: "Helvetica Neue";
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         /*        align-content: center;*/
         /*        vertical-align: top;*/
         color: darkblue;
@@ -77,10 +77,13 @@
     
     #pieDiv {
         position: relative;
+        right: -1000px;
+/*
         float: right;
         padding-right: 200px;
         padding-top: 0px;
         display: inline-block;
+*/
     }
     
     .rectangle {
@@ -102,7 +105,7 @@
     <!-- Slider source: http://bl.ocks.org/d3noob/10632804 -->
     <div id="controls">
         <label for="nRadius" style="width: 240px; text-align: right; step: 1;
-                        font-family: Helvetica Neue; font-weight: 300; color: darkblue;">
+                        font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-weight: 300; color: darkblue;">
             Year = <span id="nRadius-value"></span>
         </label>
 
@@ -161,7 +164,7 @@
             <div id="pieChartState"></div>
         </div>
     </div>
-    <div style="height:425px"></div>
+    <div style="height:25px"></div>
     <p>This visualization shows the complexities between the fossil fuel industry and CO2 emissions over time for the 50 states. I recommend looking at the highlight checkboxes. Notice how the fossil fuel industry doubles in size for Texas in twenty years, even taking inflation into account. North Dakota is interesting in that its fossil fuel industry exploded recently due to the popular use of fracking. The result is that it dramatically increases the percentage of population employed in fossil fuel industry, but at the serious expense of increasing per capita CO2 emissions. Though it has a relatively high CO2 per capita, Alaska has made serious strides in cutting greenhouse gasses in the last twenty years. For example, in 2007 Alaska joined the Western Climate Initiative to reduce its emissions by 15 percent below 2005 levels by 2020. </p>
     <script type="text/javascript" src="d3.v4.min.js"></script>
     <script src="https://d3js.org/d3-queue.v3.min.js"></script>
